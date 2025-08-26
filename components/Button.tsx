@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from "react
 
 type Props =TouchableOpacityProps & {
     title: string
+    color:string
 }
 export function Button(props:Props){
     return(
