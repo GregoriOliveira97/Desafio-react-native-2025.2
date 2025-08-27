@@ -21,7 +21,6 @@ export function Title(props:Props){
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
         gap: 12
     },
     title:{
