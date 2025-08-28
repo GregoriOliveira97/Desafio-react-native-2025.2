@@ -19,7 +19,7 @@ export default function HomeScreen() {
             <Input placeholder='Coloque seu usuario'/>
           </View>
           <View>
-            <Button title='Entrar'/>
+            <Button title='Entrar na aventura!' backgroundColor='#6A1B9A'/>
           </View>
           <View>
             <Button title='Crie sua conta aqui' backgroundColor='#ffffff' fontSize={14} color='#6A1B9A'/>

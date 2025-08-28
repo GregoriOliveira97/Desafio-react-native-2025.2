@@ -2,22 +2,16 @@ import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 type Props ={
     nome: string
-    level:number
     onPress?: ()=>void
 }
-export function CharCard(props:Props){
+export function ClassCard(props:Props){
     return(
     <TouchableOpacity style={styles.container} >
             <Image source={require("../assets/images/skillo-logo.png")} 
-            style={{height:100, width:'100%', borderRadius:12}}/>
+            style={{height:80, width:80, borderRadius:99}}/>
             <Text style={styles.nome}>
                 {props.nome}
-            </Text>
-            <Text style={styles.level}>
-                Level {props.level}
-            </Text>
-
-        
+            </Text>        
     </TouchableOpacity>
 
     )
@@ -26,8 +20,9 @@ export function CharCard(props:Props){
 
 const styles = StyleSheet.create({
     container:{
-        width:'30%',
+        width:'15%',
         gap: 6,
+        alignItems:'center',
         backgroundColor:"#f6f6f6",
         flexDirection:'column',
         padding:6,
@@ -40,11 +35,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "#000000"
     },
-    level:{
-        width:"100%",
-        alignItems:'center',
-        fontSize: 14,
-        color: "#6A1B9A"
-    }
+    
 
 })
