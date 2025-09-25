@@ -5,6 +5,7 @@
         backgroundColor?:string
         color?:string
         fontSize?:number
+        link?: string
     }
     export function Button({ title, fontSize=18,backgroundColor = "#221515", color = "#fff", ...rest }: Props){
         return(
