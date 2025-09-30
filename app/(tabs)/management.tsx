@@ -31,13 +31,12 @@ export default function GerenciamentoScreen() {
     setNewItemLevel("");
   };
 
-  // garante que ao fechar o modal o formulário é limpo (inclui hardware back no Android via onRequestClose)
   useEffect(() => {
     if (!modalVisible) resetForm();
   }, [modalVisible]);
 
   const openCreateModal = () => {
-    resetForm(); // limpa qualquer coisa que ficou
+    resetForm();
     setModalVisible(true);
   };
 
@@ -68,8 +67,7 @@ export default function GerenciamentoScreen() {
       setItems((prev) => [...prev, newItem]);
     }
 
-    setModalVisible(false); // useEffect vai chamar resetForm
-  };
+    setModalVisible(false);   };
 
   const handleDelete = (id: string) => {
     setItems((prev) => prev.filter((item) => item.id !== id));

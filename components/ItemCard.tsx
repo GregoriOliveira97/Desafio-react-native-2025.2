@@ -6,11 +6,11 @@ type Props = {
   name: string;
   level: number;
   classe: string;
-  children?: ReactNode; // 👈 permite botões extras no gerenciamento
+  children?: ReactNode; 
 };
 
 const { width } = Dimensions.get("window");
-const CARD_WIDTH = (width - 48) / 2; // calcula largura fixa p/ 2 colunas
+const CARD_WIDTH = (width - 48) / 2; 
 
 export function ItemCard({ name, level, classe, children }: Props) {
   return (
