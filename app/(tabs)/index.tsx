@@ -1,5 +1,5 @@
-import { CharCard } from '@/components/CharCard';
 import { ClassCard } from '@/components/ClassCard';
+import { ItemCard } from '@/components/ItemCard';
 import Navbar from '@/components/Navbar';
 import { Title } from '@/components/Title';
 import { width } from '@/constants/Dimensions';
@@ -20,9 +20,9 @@ export default function HomeScreen() {
             </Text>
             <ScrollView horizontal showsHorizontalScrollIndicator={true}
             contentContainerStyle={styles.charScrollContent}>
-              <CharCard nome="Lyra Tempestade" level={15} />
-              <CharCard nome="Kael Sombraulunar" level={10} />
-              <CharCard nome="Jade Sangrenta" level={8} />
+              <ItemCard name="Lyra Tempestade" level={15} classe='Mago' />
+              <ItemCard name="Kael Sombraulunar" level={10} classe='Guerreiro'/>
+              <ItemCard name="Rurik" level={18} classe='Assassino' />
             </ScrollView>
           </View>
           <View style={{gap:12}}>
