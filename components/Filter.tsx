@@ -1,36 +1,62 @@
-import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
-import { FilterStatus } from "./types/FilterStatus";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-    type Props =TouchableOpacityProps & {
-        status: FilterStatus
-        isActive: boolean,
-        color?:string
-        fontSize?:number
-        link?: string
-    }
-    export function Filter({status, isActive,  fontSize=12, ...rest }: Props){
-        return(
-        <TouchableOpacity style={[styles.container, {opacity: isActive? 1:0.5}]} {...rest} >
-            <Text style={styles.title}>
-                {status===FilterStatus.ASSASSINO }
-            </Text>
+type Props = {
+  options: string[];
+  selected: string;
+  onSelect: (value: string) => void;
+};
+
+export function Filter({ options, selected, onSelect }: Props) {
+  return (
+    <View style={styles.container}>
+      {options.map((option) => (
+        <TouchableOpacity
+          key={option}
+          style={[
+            styles.button,
+            selected === option && styles.buttonActive,
+          ]}
+          onPress={() => onSelect(option)}
+        >
+          <Text
+            style={[
+              styles.text,
+              selected === option && styles.textActive,
+            ]}
+          >
+            {option}
+          </Text>
         </TouchableOpacity>
-        )
-    }
+      ))}
+    </View>
+  );
+}
 
-    const styles = StyleSheet.create({
-        container:{
-            flex:1,
-            width:'100%',
-            gap: 12,
-            padding:6,
-            borderRadius:8
-    
-        },
-        title:{
-            color:"black",
-            fontSize:12,
-            fontWeight:600
-        }
-
-    })
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    marginBottom: 12,
+    gap: 8,
+  },
+  button: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: "#6A1B9A",
+    backgroundColor: "#fff",
+    margin: 4,
+  },
+  buttonActive: {
+    backgroundColor: "#6A1B9A",
+  },
+  text: {
+    color: "#6A1B9A",
+    fontWeight: "500",
+  },
+  textActive: {
+    color: "#fff",
+  },
+});

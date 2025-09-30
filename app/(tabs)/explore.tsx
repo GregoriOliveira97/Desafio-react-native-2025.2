@@ -1,3 +1,4 @@
+import { Filter } from "@/components/Filter";
 import { useState } from "react";
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -20,27 +21,7 @@ export default function CatalogoScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.filterContainer,{marginTop:36}]}>
-        {CLASSES.map((classe) => (
-          <TouchableOpacity
-            key={classe}
-            style={[
-              styles.filterButton,
-              filtro === classe && styles.filterButtonActive,
-            ]}
-            onPress={() => setFiltro(classe)}
-          >
-            <Text
-              style={[
-                styles.filterText,
-                filtro === classe && styles.filterTextActive,
-              ]}
-            >
-              {classe}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+      <Filter options={CLASSES} selected={filtro} onSelect={setFiltro}/>
       <Text style={{fontSize:18, fontWeight:600, paddingHorizontal:4, paddingBottom:12}}>
         Algumas opções de Heróis prontos pra se
         aventurar:
