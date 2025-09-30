@@ -1,15 +1,11 @@
 import { Filter } from "@/components/Filter";
+import { ItemCard } from "@/components/ItemCard";
+import items from "@/data/items.json";
 import { useState } from "react";
+
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const HEROES = [
-  { id: "1", name: "Lyra Tempestade", level: 15, classe: "Mago" },
-  { id: "2", name: "Kael Sombraulunar", level: 10, classe: "Guerreiro" },
-  { id: "3", name: "Thalos Ventoférreo", level: 12, classe: "Patrulheiro" },
-  { id: "4", name: "Joel Noctívaga", level: 18, classe: "Clérigo" },
-  { id: "5", name: "Rurik", level: 18, classe: "Assassino" },
-  { id: "6", name: "Joseph Lohen", level: 18, classe: "Paladino" },
-];
+
 
 const CLASSES = ["Todos", "Mago","Paladino","Clérigo", "Guerreiro", "Patrulheiro","Assassino"];
 
@@ -17,7 +13,7 @@ export default function CatalogoScreen() {
   const [filtro, setFiltro] = useState("Todos");
 
   const heroesFiltrados =
-    filtro === "Todos" ? HEROES : HEROES.filter((h) => h.classe === filtro);
+    filtro === "Todos" ? items : items.filter((h) => h.classe === filtro);
 
   return (
     <View style={styles.container}>
@@ -32,11 +28,7 @@ export default function CatalogoScreen() {
         numColumns={2} 
         columnWrapperStyle={{ justifyContent: "space-between" }}
         renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text style={[styles.name, {marginBottom:16}]}>{item.name}</Text>
-            <Text style={styles.level}>Nível {item.level}</Text>
-            <Text style={styles.classe}>{item.classe}</Text>
-          </View>
+          <ItemCard name={item.name} level={item.level} classe={item.classe}/>
         )}
         contentContainerStyle={{ paddingBottom: 80 }}
       />
