@@ -3,7 +3,7 @@ import { ItemCard } from "@/components/ItemCard";
 import items from "@/data/items.json";
 import { useState } from "react";
 
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 
 
 
@@ -32,11 +32,6 @@ export default function CatalogoScreen() {
         )}
         contentContainerStyle={{ paddingBottom: 80 }}
       />
-
-      {/* Botão no fim da tela */}
-      <TouchableOpacity style={styles.createButton}>
-        <Text style={styles.createText}>Crie os seus Heróis</Text>
-      </TouchableOpacity>
     </View>
   );
 }
