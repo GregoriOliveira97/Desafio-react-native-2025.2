@@ -2,9 +2,13 @@ import { Button } from '@/components/Button';
 import { Input } from '@/components/LoginInput';
 import { Title } from '@/components/Title';
 import { width } from '@/constants/Dimensions';
+import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
-export default function HomeScreen() {
+
+export default function Login() {
+      const navigation = useNavigation()
+
   return(
     <>
       <SafeAreaView style={styles.containerSafe}>
@@ -19,7 +23,7 @@ export default function HomeScreen() {
             <Input placeholder='Coloque seu usuario'/>
           </View>
           <View>
-            <Button title='Entrar na aventura!' backgroundColor='#6A1B9A' link='/explore'/>
+            <Button title='Entrar na aventura!' backgroundColor='#6A1B9A' onPress={()=>navigation.navigate('management')}/>
           </View>
           <View>
             <Button title='Crie sua conta aqui' backgroundColor='#ffffff' fontSize={14} color='#6A1B9A'/>

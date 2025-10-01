@@ -1,9 +1,13 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Image, StyleSheet, Text, TouchableOpacityProps, View } from "react-native";
 import { Button } from "./Button";
 
-
+type Props =TouchableOpacityProps & {
+       
+    }
  
-export default function Navbar(){
+export default function Navbar({...rest}:Props){
+    const navigation=useNavigation()
     return(
         <View style={styles.navbar}>
             <Image source={require("../assets/images/skillo-logo.png")} style={{width:80, height:80}} />
@@ -11,7 +15,7 @@ export default function Navbar(){
                 <Text style={styles.text}> Skillo Mentality</Text>
                 <Text style={styles.text}> RPG Manager</Text>
             </View>
-            <Button title="Login" activeOpacity={0.8}/>
+            <Button title="Login" activeOpacity={0.8} onPress={()=>navigation.navigate('login')}/>
         </View>
     )
 }

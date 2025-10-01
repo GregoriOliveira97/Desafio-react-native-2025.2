@@ -1,13 +1,14 @@
-import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
 
-type Props ={
+type Props =TouchableOpacityProps&{
     nome: string
     onPress?: ()=>void
+    image:ImageSourcePropType
 }
 export function ClassCard(props:Props){
     return(
     <TouchableOpacity style={styles.container} >
-            <Image source={require("../assets/images/skillo-logo.png")} 
+            <Image source={props.image} 
             style={{height:80, width:80, borderRadius:99}}/>
             <Text style={styles.nome}>
                 {props.nome}

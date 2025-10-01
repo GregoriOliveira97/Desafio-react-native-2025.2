@@ -1,7 +1,10 @@
+import { Button } from "@/components/Button";
 import { Filter } from "@/components/Filter";
 import { ItemCard } from "@/components/ItemCard";
 import items from "@/data/items.json";
+import { useNavigation } from '@react-navigation/native';
 import { useState } from "react";
+
 
 import { FlatList, StyleSheet, Text, View } from "react-native";
 
@@ -10,6 +13,8 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 const CLASSES = ["Todos", "Mago","Paladino","Clérigo", "Guerreiro", "Patrulheiro","Assassino"];
 
 export default function CatalogoScreen() {
+    const navigation = useNavigation()
+
   const [filtro, setFiltro] = useState("Todos");
 
   const heroesFiltrados =
@@ -32,6 +37,8 @@ export default function CatalogoScreen() {
         )}
         contentContainerStyle={{ paddingBottom: 80 }}
       />
+      
+      <Button title="Criar Personagem" backgroundColor="#6A1B9A" onPress={()=>navigation.navigate('login')}/>
     </View>
   );
 }
